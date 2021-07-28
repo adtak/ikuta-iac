@@ -3,7 +3,7 @@ from aws_cdk.aws_iam import Role, ServicePrincipal, ManagedPolicy
 from aws_cdk.aws_lambda import Code, Function, Handler, Runtime
 
 
-class IkutaEcrStack(core.Stack):
+class IkutaLambdaStack(core.Stack):
     def __init__(self, scope: core.Construct, id: str, **kwargs) -> None:
         super().__init__(scope, id, **kwargs)
 
