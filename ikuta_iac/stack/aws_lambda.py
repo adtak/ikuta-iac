@@ -1,10 +1,10 @@
 from aws_cdk import core
+from aws_cdk.aws_ecr import IRepository
 from aws_cdk.aws_iam import Role, ServicePrincipal, ManagedPolicy
 from aws_cdk.aws_lambda import Code, Function, Handler, Runtime
-from aws_cdk.aws_ecr import IRepository
 
 
-class IkutaLambdaStack(core.Stack):
+class LambdaStack(core.Stack):
     def __init__(self, scope: core.Construct, id: str, repository: IRepository, **kwargs) -> None:
         super().__init__(scope, id, **kwargs)
 
@@ -26,7 +26,7 @@ class IkutaLambdaStack(core.Stack):
             tag='latest',
         )
 
-        _ = Function(
+        self.ikuta_lambda_function = Function(
             self,
             'ikutaLambda',
             code=lambda_code,
